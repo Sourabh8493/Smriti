@@ -1,0 +1,208 @@
+/*
+  Market Memory-specific visuals only — the common game chrome (top bar,
+  question layout, MCQ tiles, results) lives in games/shared/gameShell.css.
+*/
+@import "../shared/gameShell.css";
+
+/* ---------- market list / object media ---------- */
+
+.market-list {
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.market-item {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-4);
+  min-width: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  box-shadow: var(--shadow-sm);
+}
+.market-item__label {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+/* Photograph of an item — contained so cut-outs of different aspect ratios
+   still sit consistently on their card. */
+.item-media {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ---------- pattern: photographed textile ---------- */
+
+.weave-stage {
+  position: relative;
+  width: min(420px, 78vw);
+  aspect-ratio: 1;
+  background-size: 100% 100%;
+  background-position: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 3px solid #6f5330;
+}
+
+.weave-stage__grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+}
+
+.weave-cell {
+  /* Cells are invisible except the hole — they exist only to position it. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weave-cell--hole {
+  background: #151814;
+  box-shadow: inset 0 0 0 3px var(--color-gold);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.weave-caption {
+  margin-top: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+  font-style: italic;
+}
+
+/* A single crop of the textile, offered as an answer. */
+.crop-swatch {
+  display: block;
+  width: 84px;
+  height: 84px;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+}
+
+/* ---------- pattern: generated SVG fallback ---------- */
+
+.pattern-grid {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  background: #6f5330;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-6);
+  box-shadow: var(--shadow-md);
+}
+
+.pattern-cell {
+  background: #f6f1e6;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pattern-cell--hole {
+  background: repeating-linear-gradient(
+    45deg,
+    #efe6d4,
+    #efe6d4 7px,
+    #e2d6bd 7px,
+    #e2d6bd 14px
+  );
+  border: 3px dashed var(--color-accent);
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  min-height: 62px;
+}
+
+/* ---------- silhouette ---------- */
+
+.silhouette-stage {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6) var(--sp-7);
+  margin-bottom: var(--sp-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.silhouette-image {
+  width: min(210px, 46vw);
+  height: min(210px, 46vw);
+  object-fit: contain;
+  filter: brightness(0) saturate(0);
+}
+
+/* ---------- recall ---------- */
+
+.recall-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  width: 100%;
+}
+
+.recall-option {
+  background: var(--color-surface);
+  border: 2.5px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  align-items: center;
+  transition: border-color 0.12s ease, background 0.12s ease, transform 0.08s ease;
+}
+.recall-option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  background: var(--color-primary-tint);
+}
+.recall-option:active:not(:disabled) {
+  transform: scale(0.99);
+}
+.recall-option.is-chosen {
+  border-color: var(--color-primary);
+  background: var(--color-primary-tint);
+  box-shadow: 0 0 0 4px var(--color-primary-tint);
+}
+.recall-option:disabled {
+  cursor: default;
+}
+.recall-option__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.recall-option__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .market-item {
+    min-width: 132px;
+    padding: var(--sp-4) var(--sp-3);
+  }
+  .crop-swatch {
+    width: 100px;
+    height: 100px;
+  }
+}

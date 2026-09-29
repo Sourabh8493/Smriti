@@ -1,0 +1,25 @@
+.auth-form-head {
+  margin-bottom: var(--sp-6);
+}
+.auth-form-head h2 {
+  margin-bottom: 8px;
+}
+.auth-form-sub {
+  color: var(--color-ink-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+}
+.auth-switch {
+  margin-top: var(--sp-5);
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+.auth-switch a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-switch a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,188 @@
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--md {
+  padding: 12px 20px;
+  font-size: var(--fs-base);
+}
+.btn--sm {
+  padding: 8px 14px;
+  font-size: var(--fs-sm);
+}
+.btn--lg {
+  padding: 16px 28px;
+  font-size: var(--fs-md);
+}
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+.btn--secondary {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+  color: var(--color-ink);
+}
+.btn--secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.btn--ghost {
+  background: transparent;
+  color: var(--color-primary);
+}
+.btn--ghost:hover {
+  background: var(--color-primary-tint);
+}
+.btn--danger {
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+}
+.btn--danger:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.btn__icon {
+  display: inline-flex;
+}
+
+/* Fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--sp-4);
+}
+.field__label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.field__required {
+  color: var(--color-accent);
+}
+.field__hint {
+  font-size: var(--fs-xs);
+  color: var(--color-ink-muted);
+}
+.field__error {
+  font-size: var(--fs-xs);
+  color: var(--color-danger);
+}
+
+.input {
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  width: 100%;
+}
+.input::placeholder {
+  color: var(--color-ink-faint);
+}
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-tint);
+}
+.input--error {
+  border-color: var(--color-danger);
+}
+.input--select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235c6c61' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 38px;
+}
+
+/* File drop */
+.file-drop {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  border: 1.5px dashed var(--color-border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  cursor: pointer;
+  background: var(--color-surface-sunk);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.file-drop:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-tint);
+}
+.file-drop__icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+.file-drop__text {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--fs-sm);
+  color: var(--color-ink-muted);
+}
+
+/* Tags */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+}
+.tag--primary {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+}
+.tag--gold {
+  background: var(--color-gold-tint);
+  color: #8a5f1c;
+}
+.tag--accent {
+  background: var(--color-accent-tint);
+  color: var(--color-accent);
+}
+
+/* Icon button (used for language switcher, TTS hooks, etc.) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--color-border-strong);
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.icon-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-tint);
+}
